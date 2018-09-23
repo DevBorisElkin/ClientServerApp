@@ -35,26 +35,36 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
     public static final int COLOR_DARKPINK = 9;
     public static final int COLOR_VINOUS = 10;
     public static int chosenColor = Color.RED;
-    public static final int FIELD_SIZE=15;
+    public static final int FIELD_SIZE = 15;
     public float touchX;
     public float touchY;
-    int[][] arrayBox=new int[FIELD_SIZE][FIELD_SIZE];
+    int[][] arrayBox = new int[FIELD_SIZE][FIELD_SIZE];
 
 
     @BindView(R.id.colorBlue)
     ImageView colorBlue;
-    @BindView(R.id.colorYellow) ImageView colorYellow;
-    @BindView(R.id.colorRed) ImageView colorRed;
-    @BindView(R.id.colorGreen) ImageView colorGreen;
-    @BindView(R.id.colorBrown) ImageView colorBrown;
-    @BindView(R.id.colorCyan) ImageView colorCyan;
-    @BindView(R.id.colorGray) ImageView colorGray;
-    @BindView(R.id.colorOrange) ImageView colorOrange;
-    @BindView(R.id.colorDarkPink) ImageView colorDarkPink;
-    @BindView(R.id.colorVinous) ImageView colorVinous;
+    @BindView(R.id.colorYellow)
+    ImageView colorYellow;
+    @BindView(R.id.colorRed)
+    ImageView colorRed;
+    @BindView(R.id.colorGreen)
+    ImageView colorGreen;
+    @BindView(R.id.colorBrown)
+    ImageView colorBrown;
+    @BindView(R.id.colorCyan)
+    ImageView colorCyan;
+    @BindView(R.id.colorGray)
+    ImageView colorGray;
+    @BindView(R.id.colorOrange)
+    ImageView colorOrange;
+    @BindView(R.id.colorDarkPink)
+    ImageView colorDarkPink;
+    @BindView(R.id.colorVinous)
+    ImageView colorVinous;
     @BindView(R.id.canvas)
     DrawView drawView;
-    @BindView(R.id.textView)TextView textView;
+    @BindView(R.id.textView)
+    TextView textView;
     Unbinder unbinder;
 
 
@@ -67,11 +77,12 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        ButterKnife.bind(getActivity());
-        View view= inflater.inflate(R.layout.fragment_offline, container, false);
+        View view = inflater.inflate(R.layout.fragment_offline, container, false);
         unbinder = ButterKnife.bind(this, view);
         initUI();
         return view;
     }
+
     @SuppressLint("ClickableViewAccessibility")
     private void initUI() {
         drawView.setOnTouchListener(touchPad());
@@ -81,17 +92,17 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
     @NonNull
     private View.OnTouchListener touchPad() {
         return (v, event) -> {
-            touchX =event.getX();
-            touchY =event.getY();
-            textView.setText("X: "+ touchX +"| Y: "+ touchY);
+            touchX = event.getX();
+            touchY = event.getY();
+            textView.setText("X: " + touchX + "| Y: " + touchY);
 
-            int widthHeigth=drawView.getWidth();
-            int cellSize=widthHeigth/FIELD_SIZE;
-            for(int i=0;i<arrayBox.length;i++){
-                for(int j=0; j<arrayBox.length;j++){
-                    if(touchX>j*cellSize&&touchX<(j+1)*cellSize){
-                        if(touchY>i*cellSize&&touchY<(i+1)*cellSize){
-                            drawView.fill(i,j,chosenColor);
+            int widthHeigth = drawView.getWidth();
+            int cellSize = widthHeigth / FIELD_SIZE;
+            for (int i = 0; i < arrayBox.length; i++) {
+                for (int j = 0; j < arrayBox.length; j++) {
+                    if (touchX > j * cellSize && touchX < (j + 1) * cellSize) {
+                        if (touchY > i * cellSize && touchY < (i + 1) * cellSize) {
+                            drawView.fill(i, j, chosenColor);
                         }
                     }
                 }

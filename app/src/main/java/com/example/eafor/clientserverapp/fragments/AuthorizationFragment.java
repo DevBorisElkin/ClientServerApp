@@ -20,7 +20,6 @@ public class AuthorizationFragment extends android.support.v4.app.Fragment {
     Button btnOnline, btnOffline;
 
 
-
     public AuthorizationFragment() {
         // Required empty public constructor
     }
@@ -31,8 +30,8 @@ public class AuthorizationFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_authorization, container, false);
 
-        btnOffline=view.findViewById(R.id.offline);
-        btnOnline=view.findViewById(R.id.online);
+        btnOffline = view.findViewById(R.id.offline);
+        btnOnline = view.findViewById(R.id.online);
         btnOffline.setOnClickListener(v -> changeFragment(1));
         btnOnline.setOnClickListener(v -> changeFragment(2));
 
@@ -48,15 +47,15 @@ public class AuthorizationFragment extends android.support.v4.app.Fragment {
 
 
     private void changeFragment(int fragment) {
-        if(fragment==1){
-            FragmentOffline fragmentOffline=new FragmentOffline();
-            FragmentManager fm=getFragmentManager();
-            FragmentTransaction ft=fm.beginTransaction().replace(R.id.fragment, fragmentOffline);
+        if (fragment == 1) {
+            FragmentOffline fragmentOffline = new FragmentOffline();
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction().replace(R.id.fragment, fragmentOffline);
             ft.commit();
-        }else if(fragment==2){
-            FragmentOnline main_fragment=new FragmentOnline();
-            FragmentManager fm=getFragmentManager();
-            FragmentTransaction ft=fm.beginTransaction().replace(R.id.fragment, main_fragment);
+        } else if (fragment == 2) {
+            FragmentOnline main_fragment = new FragmentOnline();
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction().replace(R.id.fragment, main_fragment);
             ft.commit();
         }
 

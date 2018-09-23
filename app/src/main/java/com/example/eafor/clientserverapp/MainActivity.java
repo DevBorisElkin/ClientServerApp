@@ -9,11 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.eafor.clientserverapp.fragments.AuthorizationFragment;
 
 
-
-
 public class MainActivity extends AppCompatActivity {
 
-    public static final int FIELD_SIZE=15;
+    public static final int FIELD_SIZE = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("ClickableViewAccessibility")
     private void initUI() {
-        AuthorizationFragment auth_fragment=new AuthorizationFragment();
-        FragmentTransaction ft=getSupportFragmentManager().beginTransaction().replace(R.id.fragment, auth_fragment);
+        AuthorizationFragment auth_fragment = new AuthorizationFragment();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction().replace(R.id.fragment, auth_fragment);
         ft.commit();
     }
 }

@@ -141,8 +141,8 @@
 
     <com.example.eafor.clientserverapp.DrawView
         android:id="@+id/canvas"
-        android:layout_width="340dp"
-        android:layout_height="340dp"
+        android:layout_width="338dp"
+        android:layout_height="338dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

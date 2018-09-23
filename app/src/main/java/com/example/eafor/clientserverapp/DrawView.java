@@ -90,7 +90,6 @@ public class DrawView extends View {
         }
     }
     public void performPaint(Canvas canvas, int i, int j, int squareSize){
-        //TODO: Убрать пробелы справа и снизу
         //int adding=rest/2;
         int X_TOP=j*squareSize;
         int Y_TOP=i*squareSize;

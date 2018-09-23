@@ -14,4 +14,6 @@
     <color name="colorOrange">#dc5f27</color>
     <color name="colorDarkPink">#a44d4b</color>
     <color name="colorVinous">#9c35a1</color>
+
+    <color name="backgroundColor">#353232</color>
 </resources>

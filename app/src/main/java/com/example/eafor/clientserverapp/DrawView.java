@@ -23,6 +23,7 @@ public class DrawView extends View {
     public final int COLOR_ORANGE  =getResources().getColor(R.color.colorOrange);
     public final int COLOR_DARKPINK  =getResources().getColor(R.color.colorDarkPink);
     public final int COLOR_VINOUS  =getResources().getColor(R.color.colorVinous);
+    public int rest=0;
 
 
 
@@ -65,6 +66,8 @@ public class DrawView extends View {
     @Override
     public void onDraw(Canvas canvas) {
         int widthHeight=canvas.getWidth();
+        // Нахожу остаток чтобы убрать пробелы на всех устройствах
+        rest=widthHeight%MainActivity.FIELD_SIZE;
         int squareSize=widthHeight/MainActivity.FIELD_SIZE;
         canvas.drawColor(getResources().getColor(R.color.backgroundColor));
 
@@ -87,6 +90,8 @@ public class DrawView extends View {
         }
     }
     public void performPaint(Canvas canvas, int i, int j, int squareSize){
+        //TODO: Убрать пробелы справа и снизу
+        //int adding=rest/2;
         int X_TOP=j*squareSize;
         int Y_TOP=i*squareSize;
         int X_BOT=j*squareSize+squareSize;

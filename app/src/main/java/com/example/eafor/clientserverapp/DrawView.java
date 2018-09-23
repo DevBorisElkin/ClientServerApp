@@ -30,34 +30,34 @@ public class DrawView extends View {
 
     public DrawView(Context context) {
         super(context);
-        //init(null);
+        init(null);
     }
     public DrawView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        //init(attrs);
+        init(attrs);
     }
 
     public DrawView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        //init(attrs);
+        init(attrs);
     }
 
     public DrawView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        //init(attrs);
+        init(attrs);
     }
 
 
-//    private void init(@Nullable AttributeSet set){
-//        mRectSquare=new Rect(40, 33, 130, 120);
-//        mPaintSquare=new Paint(Paint.ANTI_ALIAS_FLAG);
-//        mPaintSquare.setColor(Color.GREEN);
-//    }
-//
-//    public void swapColor(int color){
-//        mPaintSquare.setColor(color);
-//        postInvalidate();
-//    }
+    private void init(@Nullable AttributeSet set){
+        //mRectSquare=new Rect(40, 33, 130, 120);
+        mPaintSquare=new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPaintSquare.setColor(Color.GREEN);
+    }
+
+    public void swapColor(int color){
+        mPaintSquare.setColor(color);
+        postInvalidate();
+    }
 
 
 

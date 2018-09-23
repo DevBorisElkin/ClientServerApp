@@ -70,14 +70,11 @@ public class MainActivity extends AppCompatActivity {
           int cellSize=widthHeigth/10;
           for(int i=0;i<arrayBox.length;i++){
               for(int j=0; j<arrayBox.length;j++){
-                  if(i+1<arrayBox.length&&j+1<arrayBox.length){
                       if(touchX>j*cellSize&&touchX<(j+1)*cellSize){
                           if(touchY>i*cellSize&&touchY<(i+1)*cellSize){
                               drawView.fill(i,j,chosenColor);
                           }
                       }
-                  }
-
               }
           }
 

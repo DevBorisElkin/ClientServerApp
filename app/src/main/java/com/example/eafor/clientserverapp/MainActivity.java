@@ -1,13 +1,11 @@
 package com.example.eafor.clientserverapp;
 
 import android.annotation.SuppressLint;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int COLOR_DARKPINK = 9;
     public static final int COLOR_VINOUS = 10;
     public static int chosenColor = Color.RED;
-    public float touch_x_coordinate;
-    public float touch_y_coordinate;
-    ColorBox box;
+    public float touchX;
+    public float touchY;
     int[][] arrayBox=new int[10][10];
 
 
@@ -56,15 +53,36 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     private void initUI() {
         ButterKnife.bind(this);
-//        touch_x_coordinate=frameLayout.getWidth()/2;
-//        touch_y_coordinate=frameLayout.getHeight()/2;
-          drawView.setOnTouchListener((v, event) -> {
-            touch_x_coordinate=event.getX();
-            touch_y_coordinate=event.getY();
-            textView.setText("X: "+touch_x_coordinate+"| Y: "+touch_y_coordinate);
-            drawView.swapColor(chosenColor);
-            return false;
-        });
+//        touchX=frameLayout.getWidth()/2;
+//        touchY=frameLayout.getHeight()/2;
+          drawView.setOnTouchListener(touchPad());
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @NonNull
+    private View.OnTouchListener touchPad() {
+        return (v, event) -> {
+          touchX =event.getX();
+          touchY =event.getY();
+          textView.setText("X: "+ touchX +"| Y: "+ touchY);
+
+          int widthHeigth=drawView.getWidth();
+          int cellSize=widthHeigth/10;
+          for(int i=0;i<arrayBox.length;i++){
+              for(int j=0; j<arrayBox.length;j++){
+                  if(i+1<arrayBox.length&&j+1<arrayBox.length){
+                      if(touchX>j*cellSize&&touchX<(j+1)*cellSize){
+                          if(touchY>i*cellSize&&touchY<(i+1)*cellSize){
+                              drawView.fill(i,j,chosenColor);
+                          }
+                      }
+                  }
+
+              }
+          }
+
+          return false;
+      };
     }
 
     public void fillField(int[][] array){
@@ -117,16 +135,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-//        box =new ColorBox(getBaseContext(), chosenColor, touch_x_coordinate, touch_y_coordinate,  touch_x_coordinate+50,  touch_y_coordinate,  touch_x_coordinate,  touch_y_coordinate+50,  touch_x_coordinate+50,  touch_x_coordinate+50);
+//        box =new ColorBox(getBaseContext(), chosenColor, touchX, touchY,  touchX+50,  touchY,  touchX,  touchY+50,  touchX+50,  touchX+50);
 //        frameLayout.addView(box);
 //        ColorBox2 colorBox2=new ColorBox2(this);
 //        colorBox2.onDraw(new Canvas());
 
 
 //        frameLayout.setOnTouchListener((v, event) -> {
-//            touch_x_coordinate=(int)event.getX();
-//            touch_y_coordinate=(int)event.getY();
-//            box =new ColorBox(this, chosenColor, touch_x_coordinate, touch_y_coordinate,  touch_x_coordinate+50,  touch_y_coordinate,  touch_x_coordinate,  touch_y_coordinate+50,  touch_x_coordinate+50,  touch_x_coordinate+50);
+//            touchX=(int)event.getX();
+//            touchY=(int)event.getY();
+//            box =new ColorBox(this, chosenColor, touchX, touchY,  touchX+50,  touchY,  touchX,  touchY+50,  touchX+50,  touchX+50);
 //            Canvas canvas=new Canvas();
 //            box.draw(canvas);
 //            return true;

@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.eafor.clientserverapp.DrawView;
-import com.example.eafor.clientserverapp.MainActivity;
 import com.example.eafor.clientserverapp.R;
 
 import butterknife.BindView;
@@ -24,7 +23,7 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainFragment extends android.support.v4.app.Fragment {
+public class FragmentOffline extends android.support.v4.app.Fragment {
     public static final int COLOR_BLUE = 1;
     public static final int COLOR_YELLOW = 2;
     public static final int COLOR_RED = 3;
@@ -59,8 +58,8 @@ public class MainFragment extends android.support.v4.app.Fragment {
     Unbinder unbinder;
 
 
-    public MainFragment() {
-       // Required empty public constructor
+    public FragmentOffline() {
+        // Required empty public constructor
     }
 
 
@@ -68,7 +67,7 @@ public class MainFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        ButterKnife.bind(getActivity());
-        View view= inflater.inflate(R.layout.fragment_main, container, false);
+        View view= inflater.inflate(R.layout.fragment_offline, container, false);
         unbinder = ButterKnife.bind(this, view);
         initUI();
         return view;

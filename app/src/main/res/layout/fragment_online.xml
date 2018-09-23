@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/backgroundColor3">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/backgroundColor4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:id="@+id/colorBlue"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorBlue"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+
+            <ImageView
+                android:id="@+id/colorYellow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorYellow"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+
+            <ImageView
+                android:id="@+id/colorRed"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorRed"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+
+            <ImageView
+                android:id="@+id/colorGreen"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorGreen"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+
+            <ImageView
+                android:id="@+id/colorBrown"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorBrown"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"
+                android:layout_marginEnd="@dimen/paddingBetweenSquares"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:id="@+id/colorCyan"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorCyan"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+
+                />
+
+            <ImageView
+                android:id="@+id/colorGray"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorGray"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                />
+
+            <ImageView
+                android:id="@+id/colorOrange"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorOrange"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                />
+
+            <ImageView
+                android:id="@+id/colorDarkPink"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorDarkPink"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                />
+
+            <ImageView
+                android:id="@+id/colorVinous"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/colorVinous"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginEnd="@dimen/paddingBetweenSquares"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.example.eafor.clientserverapp.DrawView
+        android:id="@+id/canvas"
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="195dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Hello there!"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAlignment="center"
+        />
+</android.support.constraint.ConstraintLayout>

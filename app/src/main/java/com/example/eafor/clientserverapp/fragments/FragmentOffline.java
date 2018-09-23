@@ -15,6 +15,9 @@ import android.widget.TextView;
 import com.example.eafor.clientserverapp.DrawView;
 import com.example.eafor.clientserverapp.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,7 +37,7 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
     public static final int COLOR_ORANGE = 8;
     public static final int COLOR_DARKPINK = 9;
     public static final int COLOR_VINOUS = 10;
-    public static int chosenColor = Color.RED;
+    public static int chosenColor;
     public static final int FIELD_SIZE = 15;
     public float touchX;
     public float touchY;
@@ -67,6 +70,8 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
     TextView textView;
     Unbinder unbinder;
 
+    List<ImageView>listOfImages;
+
 
     public FragmentOffline() {
         // Required empty public constructor
@@ -86,6 +91,19 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
     @SuppressLint("ClickableViewAccessibility")
     private void initUI() {
         drawView.setOnTouchListener(touchPad());
+        listOfImages = new ArrayList<>();
+        listOfImages.add(colorBlue);
+        listOfImages.add(colorYellow);
+        listOfImages.add(colorRed);
+        listOfImages.add(colorGreen);
+        listOfImages.add(colorBrown);
+        listOfImages.add(colorCyan);
+        listOfImages.add(colorGray);
+        listOfImages.add(colorOrange);
+        listOfImages.add(colorDarkPink);
+        listOfImages.add(colorVinous);
+        colorBlue.setImageDrawable(getResources().getDrawable(R.drawable.okay));
+        chosenColor=getResources().getColor(R.color.colorBlue);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -114,37 +132,53 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
 
     @OnClick({R.id.colorBlue, R.id.colorYellow, R.id.colorRed, R.id.colorGreen, R.id.colorBrown, R.id.colorCyan, R.id.colorGray, R.id.colorOrange, R.id.colorDarkPink, R.id.colorVinous})
     public void palette(View view) {
+        removeAllSrc();
         switch (view.getId()) {
             case R.id.colorBlue:
                 chosenColor = getResources().getColor(R.color.colorBlue);
+                colorBlue.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorYellow:
                 chosenColor = getResources().getColor(R.color.colorYellow);
+                colorYellow.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorRed:
                 chosenColor = getResources().getColor(R.color.colorRed);
+                colorRed.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorGreen:
                 chosenColor = getResources().getColor(R.color.colorGreen);
+                colorGreen.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorBrown:
                 chosenColor = getResources().getColor(R.color.colorBrown);
+                colorBrown.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorCyan:
                 chosenColor = getResources().getColor(R.color.colorCyan);
+                colorCyan.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorGray:
                 chosenColor = getResources().getColor(R.color.colorGray);
+                colorGray.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorOrange:
                 chosenColor = getResources().getColor(R.color.colorOrange);
+                colorOrange.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorDarkPink:
                 chosenColor = getResources().getColor(R.color.colorDarkPink);
+                colorDarkPink.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorVinous:
                 chosenColor = getResources().getColor(R.color.colorVinous);
+                colorVinous.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
+        }
+    }
+    public void removeAllSrc(){
+        for(ImageView v:listOfImages){
+            v.setImageDrawable(null);
         }
     }
 

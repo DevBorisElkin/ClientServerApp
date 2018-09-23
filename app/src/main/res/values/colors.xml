@@ -12,8 +12,9 @@
     <color name="colorCyan">#40dcff</color>
     <color name="colorGray">#717071</color>
     <color name="colorOrange">#dc5f27</color>
-    <color name="colorDarkPink">#a44d4b</color>
+    <color name="colorDarkPink">#a93a37</color>
     <color name="colorVinous">#9c35a1</color>
 
     <color name="backgroundColor">#353232</color>
+    <color name="backgroundColor2">#4b4a4a</color>
 </resources>

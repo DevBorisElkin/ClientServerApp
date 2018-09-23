@@ -10,8 +10,8 @@ import android.view.View;
 
 public class DrawView extends View {
 
-    private Rect mRectSquare;
     private Paint mPaintSquare;
+    Paint localPaint;
     int[][]array=new int[MainActivity.FIELD_SIZE][MainActivity.FIELD_SIZE];
     public final int COLOR_BLUE =getResources().getColor(R.color.colorBlue);
     public final int COLOR_YELLOW  =getResources().getColor(R.color.colorYellow);
@@ -24,8 +24,7 @@ public class DrawView extends View {
     public final int COLOR_DARKPINK  =getResources().getColor(R.color.colorDarkPink);
     public final int COLOR_VINOUS  =getResources().getColor(R.color.colorVinous);
 
-    private int mSquareColor;
-    private int mSquareSize=50;
+
 
 
     public DrawView(Context context) {
@@ -49,9 +48,10 @@ public class DrawView extends View {
 
 
     private void init(@Nullable AttributeSet set){
-        //mRectSquare=new Rect(40, 33, 130, 120);
         mPaintSquare=new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaintSquare.setColor(Color.GREEN);
+        localPaint=new Paint(Paint.ANTI_ALIAS_FLAG);
+        localPaint.setColor(getResources().getColor(R.color.backgroundColor2));
     }
 
     public void swapColor(int color){
@@ -64,31 +64,26 @@ public class DrawView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
+        int widthHeight=canvas.getWidth();
+        int squareSize=widthHeight/MainActivity.FIELD_SIZE;
         canvas.drawColor(getResources().getColor(R.color.backgroundColor));
-        //fill();
-        int width=canvas.getWidth();
-        int height=canvas.getHeight();
-        int squareSize=width/MainActivity.FIELD_SIZE;
-//        mRectSquare.left = 50;
-//        mRectSquare.top = 50;
-//        mRectSquare.right = mRectSquare.left + mSquareSize;
-//        mRectSquare.bottom = mRectSquare.top + mSquareSize;
-//
-//        canvas.drawRect(mRectSquare, mPaintSquare);
 
+        /*Проходит по массиву, и проверяет, заполнен ли он цветом или нет, если заполнен-закрашивает
+        данный квадрат.                                                                        */
         for(int i=0;i<array.length;i++){
             for(int j=0;j<array.length;j++){
                 if(checkArrayItemColor(i,j)){
                     performPaint(canvas, i,j,squareSize);
                 }
-//                if(checkArrayItemBlue(i,j)){
-//                    performPaint(canvas, i, j, squareSize);
-//                }
-//                if(checkArrayItemRed(i,j)){
-//                    performPaint(canvas, i, j, squareSize);
-//                }
-
             }
+        }
+        //Горизонтальные разделители
+        for(int i=0;i<widthHeight;i+=squareSize){
+            canvas.drawRect(new Rect(0,i,widthHeight,i+1),localPaint);
+        }
+        //Вертикальные разделители
+        for(int i=0;i<widthHeight;i+=squareSize){
+            canvas.drawRect(new Rect(i,0,i+1,widthHeight),localPaint);
         }
     }
     public void performPaint(Canvas canvas, int i, int j, int squareSize){
@@ -97,20 +92,6 @@ public class DrawView extends View {
         int X_BOT=j*squareSize+squareSize;
         int Y_BOT=i*squareSize+squareSize;
         canvas.drawRect(new Rect(X_TOP, Y_TOP, X_BOT, Y_BOT),mPaintSquare);
-    }
-    public boolean checkArrayItemBlue(int first, int second){
-        mPaintSquare.setColor(COLOR_BLUE);
-        if (array[first][second]==COLOR_BLUE){
-            return true;
-        }
-        return false;
-    }
-    public boolean checkArrayItemRed(int first, int second){
-        mPaintSquare.setColor(COLOR_RED);
-        if (array[first][second]==COLOR_RED){
-            return true;
-        }
-        return false;
     }
 
     public boolean checkArrayItemColor(int first, int second){

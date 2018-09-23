@@ -54,9 +54,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     private void initUI() {
         ButterKnife.bind(this);
-//        touchX=frameLayout.getWidth()/2;
-//        touchY=frameLayout.getHeight()/2;
-          drawView.setOnTouchListener(touchPad());
+        drawView.setOnTouchListener(touchPad());
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -82,16 +80,6 @@ public class MainActivity extends AppCompatActivity {
           return false;
       };
     }
-
-    public void fillField(int[][] array){
-        int width=array.length;
-        int heith=array.length;
-    }
-
-
-
-
-
 
     @OnClick({R.id.colorBlue, R.id.colorYellow, R.id.colorRed, R.id.colorGreen, R.id.colorBrown, R.id.colorCyan, R.id.colorGray, R.id.colorOrange, R.id.colorDarkPink, R.id.colorVinous})
     public void palette(View view) {

@@ -12,7 +12,7 @@ public class DrawView extends View {
 
     private Rect mRectSquare;
     private Paint mPaintSquare;
-    int[][]array=new int[10][10];
+    int[][]array=new int[MainActivity.FIELD_SIZE][MainActivity.FIELD_SIZE];
     public final int COLOR_BLUE =getResources().getColor(R.color.colorBlue);
     public final int COLOR_YELLOW  =getResources().getColor(R.color.colorYellow);
     public final int COLOR_RED  =getResources().getColor(R.color.colorRed);
@@ -68,7 +68,7 @@ public class DrawView extends View {
         //fill();
         int width=canvas.getWidth();
         int height=canvas.getHeight();
-        int squareSize=width/10;
+        int squareSize=width/MainActivity.FIELD_SIZE;
 //        mRectSquare.left = 50;
 //        mRectSquare.top = 50;
 //        mRectSquare.right = mRectSquare.left + mSquareSize;

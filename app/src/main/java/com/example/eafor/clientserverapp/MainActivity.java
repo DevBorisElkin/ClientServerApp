@@ -25,9 +25,10 @@ public class MainActivity extends AppCompatActivity {
     public static final int COLOR_DARKPINK = 9;
     public static final int COLOR_VINOUS = 10;
     public static int chosenColor = Color.RED;
+    public static final int FIELD_SIZE=15;
     public float touchX;
     public float touchY;
-    int[][] arrayBox=new int[10][10];
+    int[][] arrayBox=new int[FIELD_SIZE][FIELD_SIZE];
 
 
     @BindView(R.id.colorBlue) ImageView colorBlue;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
           textView.setText("X: "+ touchX +"| Y: "+ touchY);
 
           int widthHeigth=drawView.getWidth();
-          int cellSize=widthHeigth/10;
+          int cellSize=widthHeigth/FIELD_SIZE;
           for(int i=0;i<arrayBox.length;i++){
               for(int j=0; j<arrayBox.length;j++){
                       if(touchX>j*cellSize&&touchX<(j+1)*cellSize){

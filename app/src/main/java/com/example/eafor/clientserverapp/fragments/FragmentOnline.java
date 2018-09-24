@@ -2,9 +2,8 @@ package com.example.eafor.clientserverapp.fragments;
 
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +41,16 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
     public float touchX;
     public float touchY;
     int[][] arrayBox = new int[FIELD_SIZE][FIELD_SIZE];
+
+    Unbinder unbinder;
+    List<ImageView> listOfImages;
+
+
+    Socket socket;
+    DataInputStream in;
+    DataOutputStream out;
+    final String IP_ADDRESS = "localhost";
+    final int PORT = 8189;
     @BindView(R.id.colorBlue) ImageView colorBlue;
     @BindView(R.id.colorYellow) ImageView colorYellow;
     @BindView(R.id.colorRed) ImageView colorRed;
@@ -52,44 +61,37 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
     @BindView(R.id.colorOrange) ImageView colorOrange;
     @BindView(R.id.colorDarkPink) ImageView colorDarkPink;
     @BindView(R.id.colorVinous) ImageView colorVinous;
-    @BindView(R.id.canvas) DrawView drawView;
+    @BindView(R.id.color_box) LinearLayout colorBox;
+    @BindView(R.id.canvas) DrawView canvas;
     @BindView(R.id.textView) TextView textView;
-    @BindView(R.id.color_box) LinearLayout linearLayout;
-    @BindView(R.id.text_connecting)TextView textView_connecting;
-    @BindView(R.id.button_connecting)Button button_connecting;
-    @BindView(R.id.loginField)EditText loginField;
-    @BindView(R.id.passwordField)EditText passwordField;
-    Unbinder unbinder;
-    List<ImageView> listOfImages;
-
-
-    Socket socket;
-    DataInputStream in;
-    DataOutputStream out;
-    final String IP_ADDRESS = "localhost";
-    final int PORT = 8189;
+    @BindView(R.id.text_connecting) TextView textView_connecting;
+    @BindView(R.id.button_connecting) Button button_connecting;
+    @BindView(R.id.loginField) EditText loginField;
+    @BindView(R.id.passwordField) EditText passwordField;
     private boolean isAuthorized;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        ButterKnife.bind(getActivity());
         setAuthorized(false);
     }
+
     public void setAuthorized(boolean isAuthorized) {
         this.isAuthorized = isAuthorized;
         if (!isAuthorized) {
             textView.setText("Unable to connect");
-            linearLayout.setVisibility(View.INVISIBLE);
-            drawView.setVisibility(View.INVISIBLE);
+            colorBox.setVisibility(View.INVISIBLE);
+            canvas.setVisibility(View.INVISIBLE);
             textView_connecting.setVisibility(View.VISIBLE);
             button_connecting.setVisibility(View.VISIBLE);
         } else {
-            linearLayout.setVisibility(View.VISIBLE);
-            drawView.setVisibility(View.VISIBLE);
+            colorBox.setVisibility(View.VISIBLE);
+            canvas.setVisibility(View.VISIBLE);
             textView_connecting.setVisibility(View.INVISIBLE);
             button_connecting.setVisibility(View.INVISIBLE);
         }
     }
+
     //Отправка кода на сервер и получение форматируется так: /send i(по вертикали) j(по горизонтали) Color
     public void connect() {
         try {
@@ -116,7 +118,7 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
                             if (str.equals("/serverclosed")) break;
                             if (str.startsWith("/send")) {
                                 String[] tokens = str.split(" ");
-                                drawView.fill(Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]));
+                                canvas.fill(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]));
                             }
                         } else {
 //                            chatArea.appendText(str + "\n");
@@ -154,9 +156,11 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
             connect();
         }
         try {
-            out.writeUTF("/auth " + loginField.getText() + " " + passwordField.getText());
-            loginField.setText("");
-            passwordField.setText("");
+            if(out!=null){
+                out.writeUTF("/auth " + loginField.getText() + " " + passwordField.getText());
+                loginField.setText("");
+                passwordField.setText("");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -178,8 +182,7 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        ButterKnife.bind(getActivity());
-        View view = inflater.inflate(R.layout.fragment_offline, container, false);
+        View view = inflater.inflate(R.layout.fragment_online, container, false);
         unbinder = ButterKnife.bind(this, view);
         initUI();
         return view;
@@ -187,7 +190,7 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
 
     @SuppressLint("ClickableViewAccessibility")
     private void initUI() {
-        drawView.setOnTouchListener(touchPad());
+        canvas.setOnTouchListener(touchPad());
         listOfImages = new ArrayList<>();
         listOfImages.add(colorBlue);
         listOfImages.add(colorYellow);
@@ -201,6 +204,13 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
         listOfImages.add(colorVinous);
         colorBlue.setImageDrawable(getResources().getDrawable(R.drawable.okay));
         chosenColor = getResources().getColor(R.color.colorBlue);
+        button_connecting.setOnClickListener(V->tryToAuth());
+
+        textView.setText("You aren't connected");
+        colorBox.setVisibility(View.INVISIBLE);
+        canvas.setVisibility(View.INVISIBLE);
+        textView_connecting.setVisibility(View.VISIBLE);
+        button_connecting.setVisibility(View.VISIBLE);
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -211,14 +221,14 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
             touchY = event.getY();
             textView.setText("X: " + touchX + "| Y: " + touchY);
 
-            int widthHeigth = drawView.getWidth();
+            int widthHeigth = canvas.getWidth();
             int cellSize = widthHeigth / FIELD_SIZE;
             for (int i = 0; i < arrayBox.length; i++) {
                 for (int j = 0; j < arrayBox.length; j++) {
                     if (touchX > j * cellSize && touchX < (j + 1) * cellSize) {
                         if (touchY > i * cellSize && touchY < (i + 1) * cellSize) {
-                            drawView.fill(i, j, chosenColor);
-                            String msg="/send "+i+" "+j+" "+chosenColor;
+                            canvas.fill(i, j, chosenColor);
+                            String msg = "/send " + i + " " + j + " " + chosenColor;
                             sendMsg(msg);
                         }
                     }
@@ -281,4 +291,10 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
             v.setImageDrawable(null);
         }
     }
+
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        null.unbind();
+//    }
 }

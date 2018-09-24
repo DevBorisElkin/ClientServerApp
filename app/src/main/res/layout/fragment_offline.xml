@@ -139,7 +139,7 @@
 
     </LinearLayout>
 
-    <com.example.eafor.clientserverapp.DrawView
+    <com.example.eafor.clientserverapp.draw_view.DrawView
         android:id="@+id/canvas"
         android:layout_width="338dp"
         android:layout_height="338dp"

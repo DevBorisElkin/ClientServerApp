@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.eafor.clientserverapp.DrawView;
+import com.example.eafor.clientserverapp.draw_view.DrawView;
 import com.example.eafor.clientserverapp.MainActivity;
 import com.example.eafor.clientserverapp.R;
 

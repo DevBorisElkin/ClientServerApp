@@ -1,4 +1,4 @@
-package com.example.eafor.clientserverapp;
+package com.example.eafor.clientserverapp.draw_view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,6 +8,9 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.example.eafor.clientserverapp.MainActivity;
+import com.example.eafor.clientserverapp.R;
 
 public class DrawView extends View {
 
@@ -66,6 +69,7 @@ public class DrawView extends View {
         int widthHeight = canvas.getWidth();
         // Нахожу остаток чтобы убрать пробелы на всех устройствах
         rest = widthHeight % MainActivity.FIELD_SIZE;
+        rest=rest/2;
         int squareSize = widthHeight / MainActivity.FIELD_SIZE;
         canvas.drawColor(getResources().getColor(R.color.backgroundColor));
 
@@ -78,22 +82,42 @@ public class DrawView extends View {
                 }
             }
         }
-        //Горизонтальные разделители
-        for (int i = 0; i < widthHeight; i += squareSize) {
-            canvas.drawRect(new Rect(0, i, widthHeight, i + 1), localPaint);
+        makeDividers(canvas, widthHeight, squareSize);
+    }
+
+    private void makeDividers(Canvas canvas, int widthHeight, int squareSize) {
+        //old version
+//        //Горизонтальные разделители
+//        for (int i = 0; i < widthHeight; i += squareSize) {
+//            canvas.drawRect(new Rect(0, i, widthHeight, i + 1), localPaint);
+//        }
+//        //Вертикальные разделители
+//        for (int i = 0; i < widthHeight; i += squareSize) {
+//            canvas.drawRect(new Rect(i, 0, i + 1, widthHeight), localPaint);
+//        }
+
+                //Горизонтальные разделители
+        for (int i = 0+rest; i < widthHeight; i += squareSize) {
+            canvas.drawRect(new Rect(0+rest, i, widthHeight-rest, i + 1), localPaint);
         }
         //Вертикальные разделители
-        for (int i = 0; i < widthHeight; i += squareSize) {
-            canvas.drawRect(new Rect(i, 0, i + 1, widthHeight), localPaint);
+        for (int i = 0+rest; i < widthHeight; i += squareSize) {
+            canvas.drawRect(new Rect(i, 0+rest, i + 1, widthHeight-rest), localPaint);
         }
     }
 
-    public void performPaint(Canvas canvas, int i, int j, int squareSize) {
-        //int adding=rest/2;
+    public void performPaintOld(Canvas canvas, int i, int j, int squareSize) {
         int X_TOP = j * squareSize;
         int Y_TOP = i * squareSize;
         int X_BOT = j * squareSize + squareSize;
         int Y_BOT = i * squareSize + squareSize;
+        canvas.drawRect(new Rect(X_TOP, Y_TOP, X_BOT, Y_BOT), mPaintSquare);
+    }
+    public void performPaint(Canvas canvas, int i, int j, int squareSize) {
+        int X_TOP = j * squareSize+rest;
+        int Y_TOP = i * squareSize+rest;
+        int X_BOT = j * squareSize + squareSize+rest;
+        int Y_BOT = i * squareSize + squareSize+rest;
         canvas.drawRect(new Rect(X_TOP, Y_TOP, X_BOT, Y_BOT), mPaintSquare);
     }
 

@@ -116,13 +116,13 @@
                 android:background="@color/colorOrange" />
 
             <ImageView
-                android:id="@+id/colorDarkPink"
+                android:id="@+id/colorWhite"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
                 android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_weight="1"
-                android:background="@color/colorDarkPink" />
+                android:background="@color/colorWhite" />
 
             <ImageView
                 android:id="@+id/colorVinous"
@@ -166,17 +166,20 @@
         android:id="@+id/text_connecting"
         android:layout_width="191dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="180dp"
         android:text="Подключиться?"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordField" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147" />
 
     <Button
         android:id="@+id/button_connecting"
@@ -196,16 +199,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
+        android:hint="Login"
         android:inputType="textPersonName"
         android:text=""
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/colorWhite"
-        android:hint="Login"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/passwordField"
@@ -214,12 +217,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
         android:text=""
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="@+id/loginField"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/loginField"
-        app:layout_constraintTop_toBottomOf="@+id/loginField"
-        android:textColor="@color/colorWhite"
-        android:hint="Password"/>
+        app:layout_constraintTop_toBottomOf="@+id/loginField" />
 </android.support.constraint.ConstraintLayout>

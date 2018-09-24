@@ -12,7 +12,7 @@ import com.example.eafor.clientserverapp.fragments.AuthorizationFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final int FIELD_SIZE = 15;
+    public static final int FIELD_SIZE = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

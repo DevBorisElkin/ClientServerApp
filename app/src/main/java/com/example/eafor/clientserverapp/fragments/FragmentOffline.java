@@ -2,7 +2,6 @@ package com.example.eafor.clientserverapp.fragments;
 
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.annotation.NonNull;
@@ -13,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.eafor.clientserverapp.DrawView;
+import com.example.eafor.clientserverapp.MainActivity;
 import com.example.eafor.clientserverapp.R;
 
 import java.util.ArrayList;
@@ -27,18 +27,9 @@ import butterknife.Unbinder;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentOffline extends android.support.v4.app.Fragment {
-    public static final int COLOR_BLUE = 1;
-    public static final int COLOR_YELLOW = 2;
-    public static final int COLOR_RED = 3;
-    public static final int COLOR_GREEN = 4;
-    public static final int COLOR_BROWN = 5;
-    public static final int COLOR_CYAN = 6;
-    public static final int COLOR_GRAY = 7;
-    public static final int COLOR_ORANGE = 8;
-    public static final int COLOR_DARKPINK = 9;
-    public static final int COLOR_VINOUS = 10;
+
     public static int chosenColor;
-    public static final int FIELD_SIZE = 15;
+    public static final int FIELD_SIZE = MainActivity.FIELD_SIZE;
     public float touchX;
     public float touchY;
     int[][] arrayBox = new int[FIELD_SIZE][FIELD_SIZE];
@@ -60,7 +51,7 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
     ImageView colorGray;
     @BindView(R.id.colorOrange)
     ImageView colorOrange;
-    @BindView(R.id.colorDarkPink)
+    @BindView(R.id.colorWhite)
     ImageView colorDarkPink;
     @BindView(R.id.colorVinous)
     ImageView colorVinous;
@@ -130,7 +121,7 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
         };
     }
 
-    @OnClick({R.id.colorBlue, R.id.colorYellow, R.id.colorRed, R.id.colorGreen, R.id.colorBrown, R.id.colorCyan, R.id.colorGray, R.id.colorOrange, R.id.colorDarkPink, R.id.colorVinous})
+    @OnClick({R.id.colorBlue, R.id.colorYellow, R.id.colorRed, R.id.colorGreen, R.id.colorBrown, R.id.colorCyan, R.id.colorGray, R.id.colorOrange, R.id.colorWhite, R.id.colorVinous})
     public void palette(View view) {
         removeAllSrc();
         switch (view.getId()) {
@@ -166,8 +157,8 @@ public class FragmentOffline extends android.support.v4.app.Fragment {
                 chosenColor = getResources().getColor(R.color.colorOrange);
                 colorOrange.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
-            case R.id.colorDarkPink:
-                chosenColor = getResources().getColor(R.color.colorDarkPink);
+            case R.id.colorWhite:
+                chosenColor = getResources().getColor(R.color.colorWhite);
                 colorDarkPink.setImageDrawable(getResources().getDrawable(R.drawable.okay));
                 break;
             case R.id.colorVinous:

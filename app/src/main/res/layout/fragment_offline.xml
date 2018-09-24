@@ -117,11 +117,11 @@
                 />
 
             <ImageView
-                android:id="@+id/colorDarkPink"
+                android:id="@+id/colorWhite"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:background="@color/colorDarkPink"
+                android:background="@color/colorWhite"
                 android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
                 />

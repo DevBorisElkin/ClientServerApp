@@ -22,7 +22,7 @@ public class DrawView extends View {
     public final int COLOR_CYAN = getResources().getColor(R.color.colorCyan);
     public final int COLOR_GRAY = getResources().getColor(R.color.colorGray);
     public final int COLOR_ORANGE = getResources().getColor(R.color.colorOrange);
-    public final int COLOR_DARKPINK = getResources().getColor(R.color.colorDarkPink);
+    public final int COLOR_DARKPINK = getResources().getColor(R.color.colorWhite);
     public final int COLOR_VINOUS = getResources().getColor(R.color.colorVinous);
     public int rest = 0;
 

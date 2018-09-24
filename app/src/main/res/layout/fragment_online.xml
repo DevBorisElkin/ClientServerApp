@@ -8,16 +8,17 @@
     android:background="@color/backgroundColor3">
 
     <LinearLayout
+        android:id="@+id/color_box"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:background="@color/backgroundColor4"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/backgroundColor4">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,52 +31,52 @@
                 android:id="@+id/colorBlue"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorBlue"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorBlue" />
 
             <ImageView
                 android:id="@+id/colorYellow"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorYellow"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorYellow" />
 
             <ImageView
                 android:id="@+id/colorRed"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorRed"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorRed" />
 
             <ImageView
                 android:id="@+id/colorGreen"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorGreen"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                android:layout_marginTop="@dimen/paddingBetweenSquares"/>
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_marginTop="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorGreen" />
 
             <ImageView
                 android:id="@+id/colorBrown"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorBrown"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginEnd="@dimen/paddingBetweenSquares"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginTop="@dimen/paddingBetweenSquares"
-                android:layout_marginEnd="@dimen/paddingBetweenSquares"/>
+                android:layout_weight="1"
+                android:background="@color/colorBrown" />
         </LinearLayout>
 
         <LinearLayout
@@ -89,10 +90,10 @@
                 android:id="@+id/colorCyan"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_marginBottom="@dimen/paddingBetweenSquares"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_weight="1"
                 android:background="@color/colorCyan"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
-                android:layout_marginBottom="@dimen/paddingBetweenSquares"
 
                 />
 
@@ -100,41 +101,38 @@
                 android:id="@+id/colorGray"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorGray"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                />
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorGray" />
 
             <ImageView
                 android:id="@+id/colorOrange"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorOrange"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                />
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorOrange" />
 
             <ImageView
                 android:id="@+id/colorDarkPink"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorDarkPink"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                />
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorDarkPink" />
 
             <ImageView
                 android:id="@+id/colorVinous"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorVinous"
-                android:layout_marginStart="@dimen/paddingBetweenSquares"
                 android:layout_marginBottom="@dimen/paddingBetweenSquares"
-                android:layout_marginEnd="@dimen/paddingBetweenSquares"/>
+                android:layout_marginEnd="@dimen/paddingBetweenSquares"
+                android:layout_marginStart="@dimen/paddingBetweenSquares"
+                android:layout_weight="1"
+                android:background="@color/colorVinous" />
         </LinearLayout>
 
     </LinearLayout>
@@ -163,4 +161,65 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textAlignment="center"
         />
+
+    <TextView
+        android:id="@+id/text_connecting"
+        android:layout_width="191dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Подключиться?"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordField" />
+
+    <Button
+        android:id="@+id/button_connecting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Да"
+        app:layout_constraintEnd_toEndOf="@+id/text_connecting"
+        app:layout_constraintStart_toStartOf="@+id/text_connecting"
+        app:layout_constraintTop_toBottomOf="@+id/text_connecting" />
+
+    <EditText
+        android:id="@+id/loginField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorWhite"
+        android:hint="Login"/>
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/loginField"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/loginField"
+        app:layout_constraintTop_toBottomOf="@+id/loginField"
+        android:textColor="@color/colorWhite"
+        android:hint="Password"/>
 </android.support.constraint.ConstraintLayout>

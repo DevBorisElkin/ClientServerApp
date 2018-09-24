@@ -53,6 +53,7 @@ public class AuthorizationFragment extends android.support.v4.app.Fragment {
             FragmentTransaction ft = fm.beginTransaction().replace(R.id.fragment, fragmentOffline);
             ft.commit();
         } else if (fragment == 2) {
+            //Здесь должно быть организовано соединение, и, если оно успешное, то, переход ко второму фрагменту.
             FragmentOnline main_fragment = new FragmentOnline();
             FragmentManager fm = getFragmentManager();
             FragmentTransaction ft = fm.beginTransaction().replace(R.id.fragment, main_fragment);

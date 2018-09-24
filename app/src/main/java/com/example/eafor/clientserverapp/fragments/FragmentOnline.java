@@ -116,7 +116,11 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
                         String str = in.readUTF();
                         if (str.startsWith("/")) {
                             if (str.equals("/serverclosed")) break;
-                            if (str.startsWith("/send")) {
+                            if(str.startsWith("/array_data")){
+                                String[] tokens = str.split(" ");
+                                canvas.fill(Integer.parseInt(tokens[1]),Integer.parseInt(tokens[2]),Integer.parseInt(tokens[3]));
+                            }
+                            if (str.startsWith("/send ")) {
                                 String[] tokens = str.split(" ");
                                 canvas.fill(Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]));
                             }

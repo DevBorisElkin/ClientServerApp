@@ -13,7 +13,7 @@ import com.example.eafor.clientserverapp.MainActivity;
 import com.example.eafor.clientserverapp.R;
 
 public class DrawView extends View {
-
+//hello there!
     private Paint mPaintSquare;
     Paint localPaint;
     int[][] array = new int[MainActivity.FIELD_SIZE][MainActivity.FIELD_SIZE];

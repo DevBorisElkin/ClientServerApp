@@ -52,7 +52,7 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
     Socket socket;
     DataInputStream in;
     DataOutputStream out;
-    final String IP_ADDRESS = "192.168.0.101";
+    final String IP_ADDRESS = "192.168.43.1";
     final int PORT = 8189;
     @BindView(R.id.colorBlue) ImageView colorBlue;
     @BindView(R.id.colorYellow) ImageView colorYellow;
@@ -318,9 +318,4 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
         sendMsg("/end");
     }
 
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        null.unbind();
-//    }
 }

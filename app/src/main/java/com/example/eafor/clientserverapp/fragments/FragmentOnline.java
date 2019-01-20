@@ -52,7 +52,7 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
     Socket socket;
     DataInputStream in;
     DataOutputStream out;
-    final String IP_ADDRESS = "192.168.43.1";
+    final String IP_ADDRESS = "192.168.0.103";  //Он динамический, необходимо каждый раз менять.
     final int PORT = 8189;
     @BindView(R.id.colorBlue) ImageView colorBlue;
     @BindView(R.id.colorYellow) ImageView colorYellow;
@@ -165,13 +165,6 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
             e.printStackTrace();
         }
     }
-
-//    public void selectClient(MouseEvent mouseEvent) {
-//        if(mouseEvent.getClickCount() == 2) {
-//            MiniStage ms = new MiniStage(clientsList.getSelectionModel().getSelectedItem(), out, textAreas);
-//            ms.show();
-//        }
-//    }
 
 
     public FragmentOnline() {
@@ -305,6 +298,7 @@ public class FragmentOnline extends android.support.v4.app.Fragment implements I
                 loginField.setVisibility(View.INVISIBLE);
                 passwordField.setVisibility(View.INVISIBLE);
             } else if(code==2){
+                textView.setText("");
                 colorBox.setVisibility(View.VISIBLE);
                 canvas.setVisibility(View.VISIBLE);
                 textView_connecting.setVisibility(View.INVISIBLE);
